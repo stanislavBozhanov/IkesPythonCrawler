@@ -23,11 +23,9 @@ def get_all_inputs(section):
     return inputs
 
 def has_input_quantity(form):
-    if form.find('input', {'id': 'id_add_item_dlg_quantity'}):
-        print('found')
+    if form.find('input', {'id': 'id_add_item_dlg_quantity'}) or form.find('div', {'class': 'cls-size-qty-container'}):
         return True
     else:
-        print('not found')
         return False
 
 def get_input_name(input):
