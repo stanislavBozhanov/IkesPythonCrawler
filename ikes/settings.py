@@ -50,7 +50,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
     'ikes.middleware.crossdomainxhr.XsSharing',
 )
-XS_SHARING_ALLOWED_ORIGINS = "http://127.0.0.1:88"
+XS_SHARING_ALLOWED_ORIGINS = "*"
 
 XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
 
