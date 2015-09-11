@@ -4,6 +4,7 @@ from django.views.decorators.http import require_GET, require_POST
 from .helper_menu import get_menu
 from .helper_item_form import get_item_form
 from .helper_order import make_order
+from .helper_restaurant_details import get_info
 
 
 @require_GET
@@ -43,3 +44,11 @@ def make_the_order(request):
     data = json.loads(request.body.decode('utf-8'))
     make_order(data)
     return HttpResponse()
+
+
+@require_GET
+def restaurant_info(request):
+    restaurant = request.GET.get('restaurant')
+    url = "https://www.leapset.com/order/restaurant/{0}".format(restaurant)
+    info = get_info(url)
+    return JsonResponse(info)
