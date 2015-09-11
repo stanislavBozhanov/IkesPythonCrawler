@@ -48,7 +48,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'ikes.middleware.crossdomainxhr.XsSharing',
 )
+XS_SHARING_ALLOWED_ORIGINS = "*"
+
+XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
 
 ROOT_URLCONF = 'ikes.urls'
 
