@@ -1,5 +1,6 @@
 import json
 from django.http import JsonResponse, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_GET, require_POST
 from .helper_menu import get_menu
 from .helper_item_form import get_item_form
@@ -39,6 +40,7 @@ def product_details(request):
     return JsonResponse(form)
 
 
+@csrf_exempt
 @require_POST
 def make_the_order(request):
     data = json.loads(request.body.decode('utf-8'))
